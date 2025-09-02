@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -72,14 +73,21 @@ WSGI_APPLICATION = 'library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "django_db",
+#         "USER": "postgres",
+#         "PASSWORD": "postgres",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "django_db",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "localhost",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # Password validation
@@ -100,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "users.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
